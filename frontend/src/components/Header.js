@@ -1,6 +1,6 @@
-import React from 'react'
-import { Link } from 'react-router-dom'
-function Header() {
+import 'bootstrap/dist/css/bootstrap.min.css';
+import React from 'react';
+import { Link } from 'react-router-dom';function Header() {
     return (
         <nav className="navbar navbar-expand-lg navbar-dark bg-primary">
             <div className="container">

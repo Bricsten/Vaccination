@@ -1,9 +1,11 @@
 import React from 'react';
+import Header from '../components/Header';
 import Footer from '../components/Footer';
 
 const Home = () => {
   return (
     <div>
+      <Header />
       <div className="container my-5">
         <h1>Polio Vaccination Monitoring System</h1>
         <p>
