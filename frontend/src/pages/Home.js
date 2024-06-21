@@ -1,10 +1,8 @@
 import React from 'react';
-import Navbar from './Navbar';
 
 const Home = () => {
   return (
     <div>
-      <Navbar />
       <div className="container my-5">
         <h1>Polio Vaccination Monitoring System</h1>
         <p>

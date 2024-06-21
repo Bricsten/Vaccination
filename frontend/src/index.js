@@ -2,6 +2,8 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 
 import {
   createBrowserRouter,
@@ -10,25 +12,29 @@ import {
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
+import Header from './components/Header';
+import Footer from './components/Footer';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
   {
     path: "/",
-    Component:Home
+    Component: Home
   },
   {
     path: "/login",
-    Component:Login
+    Component: Login
   },
   {
     path: "/register",
-    Component:Register
+    Component: Register
   },
 ]);
 root.render(
   <React.StrictMode>
+    <Header />
     <RouterProvider router={router} />
+    <Footer />
   </React.StrictMode>
 );
 
