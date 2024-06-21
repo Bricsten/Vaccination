@@ -1,4 +1,5 @@
 import React from 'react';
+import Footer from '../components/Footer';
 
 const Home = () => {
   return (
@@ -12,6 +13,7 @@ const Home = () => {
           This system helps you monitor your polio vaccination status and schedule appointments to ensure you and your family stay protected.
         </p>
       </div>
+      <Footer />
     </div>
   );
 };
