@@ -32,9 +32,13 @@ const router = createBrowserRouter([
 ]);
 root.render(
   <React.StrictMode>
-    <Header />
-    <RouterProvider router={router} />
-    <Footer />
+    <div className='d-flex flex-column justify-content-between' style={{ height: '100vh' }}>
+      <div className='h-100 flex-1'>
+        <Header />
+        <RouterProvider router={router} />
+      </div>
+      <Footer />
+    </div>
   </React.StrictMode>
 );
 
