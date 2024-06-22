@@ -3,7 +3,7 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div>
+    <div className='h-100  flex-1 flex'>
       <div className="container my-5">
         <h1>Polio Vaccination Monitoring System</h1>
         <p>
