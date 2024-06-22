@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Login = () => {
   const [username, setUsername] = useState('');
@@ -10,15 +11,17 @@ const Login = () => {
   const handleSubmit = async (e) => {
     e.preventDefault();
     try {
-      const response = await axios.post('/api/login', { username, password });
-      if (response.data.message === 'Login successful') {
-        navigate('/dashboard');
-      } else {
-        alert(response.data.message);
-      }
+      await axios.post('http://localhost:4000/login', { username, password }).then(res => {
+        toast.success(res.data.message)
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1500);
+      }).catch(e => {
+        toast.error(e.response.data.message);
+      })
     } catch (error) {
       console.error('Error logging in:', error);
-      alert('An error occurred during login. Please try again later.');
+      toast.error('An error occurred during login. Please try again later.');
     }
   };
 
@@ -29,7 +32,7 @@ const Login = () => {
           <div className="text-center">
             <img
               src="/login/login.png"
-              alt="Vector Image"
+              alt="Vector login"
               className="img-fluid"
             />
           </div>
@@ -37,7 +40,7 @@ const Login = () => {
         <div className="col-md-6  p-3">
           <div className='shadow-sm border border-1 rounded-3 px-3 py-4'>
             <div className="text-center mb-5">
-              <h1 className="text-success fw-bold">VMS</h1>
+              <h1 className="text-success fw-bold">LOGIN</h1>
             </div>
             <form onSubmit={handleSubmit}>
               <div className="mb-4">
@@ -67,13 +70,13 @@ const Login = () => {
                 />
               </div>
               <div className="d-grid gap-2 mb-3">
-                <button type="submit" className="btn btn-success disabled">
+                <button type="submit" className={"btn btn-success " + (!(password && username) ? 'disabled' : '')}>
                   Login
                 </button>
               </div>
               <div className="text-center mt-3">
                 <p>
-                  Don't have an account? <Link to="/signup" className='text-success'>
+                  Don't have an account? <Link to="/register" className='text-success'>
                     Sign up
                   </Link>
                 </p>
