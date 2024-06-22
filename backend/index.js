@@ -1,21 +1,26 @@
 const express = require('express');
 const mongoose = require('mongoose');
+const cors = require('cors');
 
 const app = express();
-const port = 3000;
+const port = 4000;
+
+// Configure CORS
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true,
+}));
 
 // Connect to MongoDB
 mongoose.connect('mongodb://localhost/your-database-name', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })
-.then(() => console.log('Connected to MongoDB'))
-.catch((err) => console.error('Error connecting to MongoDB:', err));
+  .then(() => console.log('Connected to MongoDB'))
+  .catch((err) => console.error('Error connecting to MongoDB:', err));
 
 // User schema
 const userSchema = new mongoose.Schema({
-  firstName: { type: String, required: true },
-  lastName: { type: String, required: true },
   username: { type: String, required: true, unique: true },
   email: { type: String, required: true, unique: true },
   password: { type: String, required: true }
@@ -25,13 +30,12 @@ const User = mongoose.model('User', userSchema);
 
 // Middleware
 app.use(express.json());
-app.use(express.urlencoded({ extended: true }));
 
 // Registration route
 app.post('/register', async (req, res) => {
   try {
-    const { firstName, lastName, username, email, password } = req.body;
-    const user = new User({ firstName, lastName, username, email, password });
+    const { username, email, password } = req.body;
+    const user = new User({ username, email, password });
     await user.save();
     res.status(201).json({ message: 'Registration successful' });
   } catch (err) {
