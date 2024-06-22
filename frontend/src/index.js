@@ -14,6 +14,9 @@ import Register from './pages/Register';
 import Login from './pages/Login';
 import Header from './components/Header';
 import Footer from './components/Footer';
+import NotFound from './pages/404';
+import { ToastContainer } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter([
@@ -29,12 +32,22 @@ const router = createBrowserRouter([
     path: "/register",
     Component: Register
   },
+  {
+    path: '*',
+    Component: NotFound
+  }
 ]);
 root.render(
   <React.StrictMode>
-    <Header />
-    <RouterProvider router={router} />
-    <Footer />
+
+    <div className='d-flex flex-column justify-content-between' style={{ height: '100vh' }}>
+      <ToastContainer />
+      <div className='h-100 flex-1'>
+        <Header />
+        <RouterProvider router={router} />
+      </div>
+      <Footer />
+    </div>
   </React.StrictMode>
 );
 

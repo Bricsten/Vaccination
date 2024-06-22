@@ -1,11 +1,9 @@
 import React from 'react';
-import Header from '../components/Header';
-import Footer from '../components/Footer';
+
 
 const Home = () => {
   return (
     <div>
-      <Header />
       <div className="container my-5">
         <h1>Polio Vaccination Monitoring System</h1>
         <p>
@@ -15,7 +13,6 @@ const Home = () => {
           This system helps you monitor your polio vaccination status and schedule appointments to ensure you and your family stay protected.
         </p>
       </div>
-      <Footer />
     </div>
   );
 };

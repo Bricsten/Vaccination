@@ -1,76 +1,88 @@
 import React, { useState } from 'react';
+import { Link, useNavigate } from 'react-router-dom';
+import axios from 'axios';
+import { toast } from 'react-toastify';
 
 const Login = () => {
-  const [email, setEmail] = useState('');
+  const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const handleSubmit = async (e) => {
     e.preventDefault();
-
     try {
-      // Replace this with your actual API or backend logic
-      const response = await fetch('/api/login', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
-
-      if (response.ok) {
-        const data = await response.json();
-        // Handle successful login, e.g., redirect to dashboard or store token
-        console.log(data);
-      } else {
-        // Handle login error, e.g., display error message
-        console.error('Error logging in:', response.status);
-      }
+      await axios.post('http://localhost:4000/login', { username, password }).then(res => {
+        toast.success(res.data.message)
+        setTimeout(() => {
+          navigate('/dashboard');
+        }, 1500);
+      }).catch(e => {
+        toast.error(e.response.data.message);
+      })
     } catch (error) {
-      // Handle any other errors that might occur
       console.error('Error logging in:', error);
+      toast.error('An error occurred during login. Please try again later.');
     }
   };
 
   return (
-    <div className="container d-flex justify-content-center align-items-center h-100">
-      <div className="card login-card">
-        <div className="card-body">
-          <h1 className="card-title text-center mb-4">Login</h1>
-          <form onSubmit={handleSubmit}>
-            <div className="mb-3">
-              <label htmlFor="email" className="form-label">
-                Email address
-              </label>
-              <input
-                type="email"
-                className="form-control"
-                id="email"
-                aria-describedby="emailHelp"
-                value={email}
-                onChange={(e) => setEmail(e.target.value)}
-                required
-              />
+    <div className="container-fluid container-md h-100 flex flex-column flex-1 justify-content-center">
+      <div className="row h-100 align-items-center">
+        <div className="col-md-6 d-none d-md-block  p-5">
+          <div className="text-center">
+            <img
+              src="/login/login.png"
+              alt="Vector login"
+              className="img-fluid"
+            />
+          </div>
+        </div>
+        <div className="col-md-6  p-3">
+          <div className='shadow-sm border border-1 rounded-3 px-3 py-4'>
+            <div className="text-center mb-5">
+              <h1 className="text-success fw-bold">LOGIN</h1>
             </div>
-            <div className="mb-4">
-              <label htmlFor="password" className="form-label">
-                Password
-              </label>
-              <input
-                type="password"
-                className="form-control"
-                id="password"
-                value={password}
-                onChange={(e) => setPassword(e.target.value)}
-                required
-              />
-            </div>
-            <button type="submit" className="btn btn-primary w-100">
-              Login
-            </button>
-          </form>
+            <form onSubmit={handleSubmit}>
+              <div className="mb-4">
+                <label htmlFor="username" className="form-label fw-semibold">
+                  Username
+                </label>
+                <input
+                  type="text"
+                  className="form-control"
+                  id="username"
+                  placeholder="Enter your username"
+                  value={username}
+                  onChange={(e) => setUsername(e.target.value)}
+                />
+              </div>
+              <div className="mb-4">
+                <label htmlFor="password" className="form-label fw-semibold">
+                  Password
+                </label>
+                <input
+                  type="password"
+                  className="form-control"
+                  id="password"
+                  placeholder="Enter your password"
+                  value={password}
+                  onChange={(e) => setPassword(e.target.value)}
+                />
+              </div>
+              <div className="d-grid gap-2 mb-3">
+                <button type="submit" className={"btn btn-success " + (!(password && username) ? 'disabled' : '')}>
+                  Login
+                </button>
+              </div>
+              <div className="text-center mt-3">
+                <p>
+                  Don't have an account? <Link to="/register" className='text-success'>
+                    Sign up
+                  </Link>
+                </p>
+              </div>
+            </form>
+          </div>
         </div>
       </div>
     </div>
