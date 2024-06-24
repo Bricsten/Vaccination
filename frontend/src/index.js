@@ -39,9 +39,9 @@ const router = createBrowserRouter([
 ]);
 root.render(
   <React.StrictMode>
-
+    <ToastContainer />
     <div className='d-flex flex-column justify-content-between' style={{ minHeight: '100vh' }}>
-      <ToastContainer />
+
       <div className='h-100 flex-1'>
         <Header />
         <RouterProvider router={router} />
