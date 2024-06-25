@@ -8,4 +8,62 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+/* DASHBOARD */
+.menu-btn{
+  position: fixed;
+  top: 14px;
+  left: 10px;
+}
+.x-rounded{
+  overflow-y:auto ;
+}
+.panel {
+  width: 300px;
+  transition: all 0.3s ease-in-out;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+}
 
+@media screen and (max-width: 992px) {
+  .panel {
+    width: 300px;
+    position: fixed;
+    top: 0;
+    height: 100vh;
+    transform: translateX(-300px);
+  }
+  .openPanel {
+    transform: translateX(0);
+  }
+
+  .x-rounded{
+    border-radius: 0px !important;
+    overflow-y: visible;
+
+  }
+  .overlay{
+    all: unset;
+    cursor: pointer;
+    background-color: rgba(0, 0, 0, 0.164);
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 100vw;
+    height: 100vh;
+
+  }
+}
+
+.ReactModal__Content {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 80%;
+  max-width: 600px;
+  background-color: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+}

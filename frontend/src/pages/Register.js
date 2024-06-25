@@ -14,8 +14,9 @@ const Register = () => {
     try {
       await axios.post('http://localhost:4000/register', { username, email, password }).then(res => {
         toast.success(res.data.message)
+        localStorage.setItem('user', JSON.stringify(res.data.user));
         setTimeout(() => {
-          navigate('/login');
+          navigate('/');
         }, 1500);
       }).catch(e => {
         toast.error(e.response.data.message);

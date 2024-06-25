@@ -1,9 +1,10 @@
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
 
 //REACT ROUTER DOM
 import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
@@ -17,6 +18,7 @@ import Overview from './pages/dashboard pages/Overview';
 import VaccinatedPeople from './pages/dashboard pages/VaccinatedPeople';
 import Dashboard from './pages/Dashboard';
 import App from './App'
+import GettingStarted from "./pages/GettingStarted";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 const router = createBrowserRouter(
@@ -25,9 +27,11 @@ const router = createBrowserRouter(
       <Route index element={<Home />} />
       <Route path='register' element={<Register />} />
       <Route path='login' element={<Login />} />
-      <Route path='dashboard' element={<Dashboard />} />
-      <Route index element={<Overview />} />
-      <Route path='vaccinatedpeople' element={<VaccinatedPeople />}>
+      <Route path='gettingstarted' element={<GettingStarted />} />
+      <Route path='dashboard' element={<Dashboard />} >
+        <Route index element={<Overview />} />
+        <Route path='vaccinatedpeople' element={<VaccinatedPeople />} />
+        <Route path='*' element={<NotFound />} />
       </Route>
       <Route path='*' element={<NotFound />} />
     </Route>

@@ -4,7 +4,7 @@ const Footer = () => {
   //ROUNTING VARIABLE
   const loc = useLocation()
   const pathname = loc.pathname
-  if (pathname === '/dashboard') {
+  if (pathname.slice(0, 10) === '/dashboard') {
     return null
   }
   return (
