@@ -4,9 +4,9 @@ const Home = () => {
   return (
     <div>
       {/* Hero Section */}
-      <section className="hero d-flex align-items-center justify-content-center" style={{ backgroundImage: 'url("/images/poli.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+      <section className="hero d-flex align-items-center justify-content-center" style={{ backgroundImage: 'url("/images/poli.jpg")', backgroundSize: 'cover', backgroundPosition: 'center', minHeight: '85vh' }}>
         <div className="hero-content text-center text-white">
-          <h1 className="mb-3">Polio Vaccination Monitoring System</h1>
+          <h1 className="text-white fw-bold">Polio Vaccination Monitoring System</h1>
           <p className="mb-4">Stay protected from the spread of polio.</p>
           <a href="/login" className="btn btn-success">Get Started</a>
         </div>
