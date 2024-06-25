@@ -1,43 +1,17 @@
 
-
-import React from 'react';
-
-function Header() {
-  return (
-    <header
-      className="d-flex justify-content-between align-items-center py-3 px-4"
-      style={{ backgroundColor: '#198754', color: '#fff' }}
-    >
-      <div>
-        <h2 className="text-white fw-bold">PVMMS</h2>
-      </div>
-      <nav>
-        <ul className="list-unstyled d-flex gap-4">
-          <li>
-            <a href="/login" className="text-white text-decoration-none">
-              Login
-            </a>
-          </li>
-          <li>
-            <a href="/register" className="text-white text-decoration-none">
-              Register
-            </a>
-          </li>
-        </ul>
-      </nav>
-    </header>
-    
-  );
-}
-
-export default Header;
-/**import React from 'react';
-import { Link } from 'react-router-dom'; // Assuming you're using React Router
+import React from 'react'
+import { useLocation,Link } from 'react-router-dom'
 
 function Header() {
+  ROUNTING VARIABLE
+    const loc = useLocation()
+    const pathname = loc.pathname
+    /* if (pathname.slice(0, 10) === '/dashboard') {
+        return null
+    } */
   return (
     <header
-      className="d-flex justify-content-between align-items-center py-3 px-4"
+     className={pathname.slice(0, 10) === '/dashboard' ? 'pt-3 ps-5 ms-4 d-lg-none' : 'container-fluid container-md d-flex justify-content-between align-items-center py-3 px-4'}
       style={{ backgroundColor: '#198754', color: '#fff' }}
     >
       <div>
@@ -57,8 +31,7 @@ function Header() {
           </li>
         </ul>
       </nav>
-    </header>
-  );
+    </header>)
 }
 
 export default Header; */
