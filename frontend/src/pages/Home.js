@@ -2,9 +2,18 @@ import React from 'react';
 
 const Home = () => {
   return (
-    <div className='h-100  flex-1 flex'>
+    <div>
+      {/* Hero Section */}
+      <section className="hero d-flex align-items-center justify-content-center" style={{ backgroundImage: 'url("/images/poli.jpg")', backgroundSize: 'cover', backgroundPosition: 'center' }}>
+        <div className="hero-content text-center text-white">
+          <h1 className="mb-3">Polio Vaccination Monitoring System</h1>
+          <p className="mb-4">Stay protected from the spread of polio.</p>
+          <a href="/login" className="btn btn-success">Get Started</a>
+        </div>
+      </section>
+
+      {/* Content Section */}
       <div className="container my-5">
-        <h1>Polio Vaccination Monitoring System</h1>
         <p>
           Polio is a highly contagious viral disease that mainly affects young children. It can cause lifelong paralysis and, in some cases, death. Vaccination is the most effective way to prevent the spread of polio.
         </p>
