@@ -14,7 +14,7 @@ function Patient({ data, sn, handleEditPatient, deletePatient, updateDeletePatie
             </div>
             <div className='col-2'>{data.sn}</div>
             <div className='col-2'>{data.name}</div>
-            <div className='col-2'>{date.toLocaleString()}</div>
+            <div className='col-2'>{date.toLocaleDateString()}</div>
             <div className='col-2'>{data.dosesLeft === 0 ? <div className='btn btn-success  fw-semibold align-items-center'><FaCheckCircle /> Completed</div> : <div className='btn btn-warning px-4 fw-semibold '><FaCircleNotch /> {data.dosesLeft} left</div>}</div>
             <div className='col-2 d-flex justify-content-around'>
                 <FaPencilAlt

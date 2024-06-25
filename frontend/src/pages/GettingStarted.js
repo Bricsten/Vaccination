@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import country from './country/country.json';
 
-import { toast } from 'react-toastify';
-import { useNavigate, Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 
 function GettingStarted() {
     const [selectedCountry, setSelectedCountry] = useState('');
