@@ -1,6 +1,5 @@
 import React from 'react';
 
-
 const Home = () => {
   return (
     <div className='h-100  flex-1 flex'>

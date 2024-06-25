@@ -1,53 +1,45 @@
+
+import "bootstrap/dist/css/bootstrap.min.css";
+import "bootstrap/dist/js/bootstrap.bundle.min";
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import reportWebVitals from './reportWebVitals';
-import "bootstrap/dist/css/bootstrap.min.css";
-import "bootstrap/dist/js/bootstrap.bundle.min";
 
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+//REACT ROUTER DOM
+import { createBrowserRouter, createRoutesFromElements, Route, RouterProvider } from 'react-router-dom'
+
 import Home from './pages/Home';
 import Register from './pages/Register';
 import Login from './pages/Login';
-import Header from './components/Header';
-import Footer from './components/Footer';
 import NotFound from './pages/404';
-import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Overview from './pages/dashboard pages/Overview';
+import VaccinatedPeople from './pages/dashboard pages/VaccinatedPeople';
+import Dashboard from './pages/Dashboard';
+import App from './App'
+import GettingStarted from "./pages/GettingStarted";
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
-const router = createBrowserRouter([
-  {
-    path: "/",
-    Component: Home
-  },
-  {
-    path: "/login",
-    Component: Login
-  },
-  {
-    path: "/register",
-    Component: Register
-  },
-  {
-    path: '*',
-    Component: NotFound
-  }
-]);
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path='/' element={<App />}>
+      <Route index element={<Home />} />
+      <Route path='register' element={<Register />} />
+      <Route path='login' element={<Login />} />
+      <Route path='gettingstarted' element={<GettingStarted />} />
+      <Route path='dashboard' element={<Dashboard />} >
+        <Route index element={<Overview />} />
+        <Route path='vaccinatedpeople' element={<VaccinatedPeople />} />
+        <Route path='*' element={<NotFound />} />
+      </Route>
+      <Route path='*' element={<NotFound />} />
+    </Route>
+  )
+)
 root.render(
   <React.StrictMode>
-
-    <div className='d-flex flex-column justify-content-between' style={{ minHeight: '100vh' }}>
-      <ToastContainer />
-      <div className='h-100 flex-1'>
-        <Header />
-        <RouterProvider router={router} />
-      </div>
-      <Footer />
-    </div>
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
 
