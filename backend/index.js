@@ -12,7 +12,7 @@ app.use(cors({
 }));
 
 // Connect to MongoDB
-mongoose.connect('mongodb://localhost/your-database-name', {
+mongoose.connect('mongodb://localhost/vaccination-monitoring-system', {
   useNewUrlParser: true,
   useUnifiedTopology: true
 })

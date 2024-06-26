@@ -152,7 +152,7 @@ function Overview() {
                                     <tr key={patient.sn}>
                                         <td>{patient.sn}</td>
                                         <td>{patient.name}</td>
-                                        <td>{date.toLocaleString()}</td>
+                                        <td>{date.toLocaleDateString()}</td>
                                         <td>
                                             {patient.dosesLeft === 0 ? <div className='btn btn-success  fw-semibold align-items-center'><FaCheckCircle /> Completed</div> : <div className='btn btn-warning px-4 fw-semibold '><FaCircleNotch /> {patient.dosesLeft} left</div>}
                                         </td>
