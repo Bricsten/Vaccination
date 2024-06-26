@@ -3,7 +3,7 @@ import React from 'react'
 import { useLocation,Link } from 'react-router-dom'
 
 function Header() {
-  ROUNTING VARIABLE
+
     const loc = useLocation()
     const pathname = loc.pathname
     /* if (pathname.slice(0, 10) === '/dashboard') {
@@ -11,11 +11,11 @@ function Header() {
     } */
   return (
     <header
-     className={pathname.slice(0, 10) === '/dashboard' ? 'pt-3 ps-5 ms-4 d-lg-none' : 'container-fluid container-md d-flex justify-content-between align-items-center py-3 px-4'}
-      style={{ backgroundColor: '#198754', color: '#fff' }}
-    >
+    className={pathname.slice(0, 10) === '/dashboard' ? 'pt-3 ps-5 ms-4 d-lg-none' : 'container-fluid d-flex justify-content-between align-items-center py-3 px-4'}
+    style={{ backgroundColor: '#198754', color: '#fff' }}
+  >
       <div>
-        <h2 className="text-white fw-bold">PVMMS</h2>
+      <h2><a href="/" class="text-white text-decoration-none text-white fw-bold">PVMMS</a></h2>
       </div>
       <nav>
         <ul className="list-unstyled d-flex gap-4">
@@ -34,4 +34,4 @@ function Header() {
     </header>)
 }
 
-export default Header; */
+export default Header; 
