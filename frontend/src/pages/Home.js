@@ -48,7 +48,7 @@ const JumbotronSection = () => {
         <div className="container text-center">
           <h1 className="display-4 text-white mb-4 fw-bold">Welcome to PVMMS</h1>
           <p className="lead text-white mb-5">Discover the power of our solutions.</p>
-          <a href="/" className="btn btn-success btn-lg">
+          <a href="/register" className="btn btn-success btn-lg">
             Get Started
           </a>
         </div>
