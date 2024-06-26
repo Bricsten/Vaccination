@@ -4,6 +4,7 @@ import { useLocation, Link } from 'react-router-dom'
 import { FaSignOutAlt } from 'react-icons/fa'
 
 function Header() {
+
   /* ROUTING VARIABLE */
   const loc = useLocation()
   const pathname = loc.pathname

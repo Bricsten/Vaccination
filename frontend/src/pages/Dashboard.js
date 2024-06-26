@@ -32,7 +32,7 @@ function Dashboard() {
                         </button>
                     </div>
                     <div className='bg-white rounded-circle mx-auto mt-1=2 mt-lg-3 d-flex justify-content-center align-items-center' style={{ width: '170px', height: '170px' }}>
-                        <h2 className="text-success fw-bold">PVMS</h2>
+                        <h2 className="text-success fw-bold">PVMMS</h2>
                     </div>
                     <div className='text-white bg fw-bold bg-info py-2 text-center rounded-2 mt-4 mx-auto' style={{ fontSize: 17, width: '190px' }}>Control Panel</div>
                     <Link to="/dashboard" className={'ms-auto mt-4 text-white fw-bolder d-flex align-items-center gap-3 ps-2 py-2 text-decoration-none ' + (isRoute('/dashboard') ? 'border-info border-2 border-start bg-info bg-opacity-25 rounded-start-1' : '')} style={{ fontSize: 17, width: '260px' }}>
