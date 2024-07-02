@@ -11,9 +11,15 @@ function Dashboard() {
         return loc.pathname === route
     }
     const navigate = useNavigate()
-    if (!localStorage.getItem('country') || !localStorage.getItem('population') || !localStorage.getItem('user')) {
-        navigate('/')
-    }
+
+    const [canShow, setCanShow] = useState(false)
+
+    useEffect(() => {
+        if (!localStorage.getItem('region') || !localStorage.getItem('population') || !localStorage.getItem('user')) {
+            navigate('/gettingstarted');
+        }
+        setCanShow(true)
+    }, [navigate])
     return (
         <div className=" flex-grow-1 d-flex bg-success">
             <button onClick={() => { setIsOpen(true) }} className='btn btn-outline-success d-lg-none menu-btn z-2'>

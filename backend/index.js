@@ -64,23 +64,27 @@ app.post('/login', async (req, res) => {
 });
 
 
-
 const Patient = mongoose.model('Patient', {
   sn: String, // Serial Number
   name: String,
   dateVaccinated: Date,
   dosesLeft: Number,
+  region: String, // New field for the region
 });
 
 // CRUD routes
 app.get('/api/patients', async (req, res) => {
   try {
-    const { search } = req.query;
+    const { search, region } = req.query;
     let query = {};
 
     if (search) {
       query.name = { $regex: search };
     }
+    if (region) {
+      query.region = region;
+    }
+
     const patients = await Patient.find(query);
     res.json(patients);
   } catch (err) {

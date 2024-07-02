@@ -31,8 +31,8 @@ function Overview() {
 
     /* GETTING PATIENTS */
     useEffect(() => {
-
-        axios.get(backendUrl)
+        console.log('getPatients')
+        axios.get(`${backendUrl}?region=${localStorage.getItem('region')}`)
             .then(res => {
                 setPatients(res.data);
                 const data = res.data.reverse()
@@ -51,7 +51,7 @@ function Overview() {
                 <h1 className="text-3xl mt-0 fw-semibold pt-1  pt-lg-5 px-4">Overview </h1>
                 <div className="d-flex align-items-center">
                     <FaFlag className="text-muted me-2" />
-                    <div className="text-sm text-muted">{localStorage.getItem('country')}</div>
+                    <div className="text-sm text-muted">{localStorage.getItem('region')}</div>
                 </div>
             </div>
             <section className='container-fluid pt-4 px-4'>

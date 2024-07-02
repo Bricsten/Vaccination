@@ -29,7 +29,7 @@ function VaccinatedPeople() {
 
     /* GETTING PATIENTS */
     useEffect(() => {
-        axios.get(backendUrl).then(res => setPatients(res.data)).catch(err => console.log(err))
+        axios.get(`${backendUrl}?region=${localStorage.getItem('region')}`).then(res => setPatients(res.data)).catch(err => console.log(err))
     }, [])
 
     /* UPDATING PATIENTS */
@@ -110,7 +110,7 @@ function VaccinatedPeople() {
     const [search, setSearch] = useState('');
     const handleSearch = (e) => {
         setSearch(e.target.value);
-        axios.get(`${backendUrl}?search=${e.target.value}`)
+        axios.get(`${backendUrl}?search=${e.target.value}&region=${localStorage.getItem('region')}`)
             .then(res => {
                 console.log(res.data)
                 setPatients(res.data)
@@ -141,7 +141,7 @@ function VaccinatedPeople() {
                 setIsModalOpen(false);
             }).catch(err => console.log(err))
         } else {
-            axios.post(backendUrl, patientData).then(res => {
+            axios.post(backendUrl, { ...patientData, region: localStorage.getItem('region') }).then(res => {
                 setPatients([...patients, res.data]);
                 setIsModalOpen(false);
             }).catch(err => console.log(err))
