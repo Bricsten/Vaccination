@@ -13,11 +13,12 @@ function Dashboard() {
     const [canShow, setCanShow] = useState(false)
 
     useEffect(() => {
-        if (!localStorage.getItem('country') || !localStorage.getItem('population') || !localStorage.getItem('user')) {
+        if (!localStorage.getItem('region') || !localStorage.getItem('population') || !localStorage.getItem('user')) {
             navigate('/gettingstarted');
         }
         setCanShow(true)
-    }, [navigate]);
+    }, [navigate])
+
     return (
         <>
             <div className=" flex-grow-1 d-flex bg-success">

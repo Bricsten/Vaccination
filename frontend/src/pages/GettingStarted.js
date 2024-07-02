@@ -1,72 +1,69 @@
 import React, { useState } from 'react';
-import country from './country/country.json';
+import regions from './regions/regions.json';
 
 import { useNavigate } from 'react-router-dom';
 
 function GettingStarted() {
-    const [selectedCountry, setSelectedCountry] = useState('');
-    const [isCustomCountry, setIsCustomCountry] = useState(false);
-    const [customCountryName, setCustomCountryName] = useState('');
-    const [customCountryPopulation, setCustomCountryPopulation] = useState('');
+    const [selectedRegion, setSelectedRegion] = useState('');
+    const [isCustomRegion, setIsCustomRegion] = useState(false);
+    const [customRegionName, setCustomRegionName] = useState('');
+    const [customRegionPopulation, setCustomRegionPopulation] = useState('');
 
-    const handleCountrySelect = (event) => {
-        setSelectedCountry(event.target.value);
+    const handleRegionSelect = (event) => {
+        setSelectedRegion(event.target.value);
     };
 
-    const handleCustomCountry = () => {
-        setIsCustomCountry(prevState => !prevState);
+    const handleCustomRegion = () => {
+        setIsCustomRegion(prevState => !prevState);
     };
 
-    const handleCustomCountryNameChange = (event) => {
-
-        setCustomCountryName(event.target.value);
+    const handleCustomRegionNameChange = (event) => {
+        setCustomRegionName(event.target.value);
     };
 
-    const handleCustomCountryPopulationChange = (event) => {
-
-        setCustomCountryPopulation(event.target.value);
+    const handleCustomRegionPopulationChange = (event) => {
+        setCustomRegionPopulation(event.target.value);
     };
 
     const navigate = useNavigate();
     const handleContinue = () => {
-        if (!isCustomCountry) {
-            localStorage.setItem('country', selectedCountry);
-            localStorage.setItem('population', country[selectedCountry]);
+        if (!isCustomRegion) {
+            localStorage.setItem('region', selectedRegion);
+            localStorage.setItem('population', regions[selectedRegion]);
             navigate('/dashboard');
         } else {
-            localStorage.setItem('country', customCountryName);
-            localStorage.setItem('population', customCountryPopulation);
+            localStorage.setItem('region', customRegionName);
+            localStorage.setItem('population', customRegionPopulation);
             navigate('/dashboard');
         }
     };
+
     const isSubmitDisabled = () => {
-        if (selectedCountry !== '' && !isCustomCountry) {
+        if (selectedRegion !== '' && !isCustomRegion) {
             return false
         } else {
-            if (isCustomCountry && customCountryName && customCountryPopulation) {
+            if (isCustomRegion && customRegionName && customRegionPopulation) {
                 return false;
             }
         }
         return true;
     };
 
-
-
     return (
         <div className="container my-5">
             <h1 className="mb-4 fw-semibold">Get Started <span className='text-success'>Polio Monitoring System</span></h1>
 
             <div className="form-group">
-                <label htmlFor="country-select" className="form-label">Select a country:</label>
+                <label htmlFor="region-select" className="form-label">Select a region in cameroon:</label>
                 <select
-                    id="country-select"
-                    className={`form-control ${isCustomCountry ? 'bg-secondary text-white disabled' : ''}`}
-                    value={selectedCountry}
-                    onChange={handleCountrySelect}
-                    disabled={isCustomCountry}
+                    id="region-select"
+                    className={`form-control ${isCustomRegion ? 'bg-secondary text-white disabled' : ''}`}
+                    value={selectedRegion}
+                    onChange={handleRegionSelect}
+                    disabled={isCustomRegion}
                 >
-                    <option value="">Select a country</option>
-                    {Object.keys(country).map((key) => (
+                    <option value="">Select a region</option>
+                    {Object.keys(regions).map((key) => (
                         <option key={key} value={key}>{key}</option>
                     ))}
                 </select>
@@ -74,41 +71,39 @@ function GettingStarted() {
             <div className="form-check my-3">
                 <input
                     type="checkbox"
-                    id="custom-country-checkbox"
+                    id="custom-region-checkbox"
                     className="form-check-input"
-                    checked={isCustomCountry}
-                    onChange={handleCustomCountry}
+                    checked={isCustomRegion}
+                    onChange={handleCustomRegion}
                 />
-                <label htmlFor="custom-country-checkbox" className="form-check-label">Custom</label>
+                <label htmlFor="custom-region-checkbox" className="form-check-label">Custom</label>
             </div>
 
-            {isCustomCountry && (
+            {isCustomRegion && (
                 <div>
                     <div className="form-group">
-                        <label htmlFor="custom-country-name" className="form-label">Custom Country Name:</label>
+                        <label htmlFor="custom-region-name" className="form-label">Custom Region Name:</label>
                         <input
                             type="text"
-                            id="custom-country-name"
+                            id="custom-region-name"
                             className="form-control"
-                            value={customCountryName}
-                            onChange={handleCustomCountryNameChange}
+                            value={customRegionName}
+                            onChange={handleCustomRegionNameChange}
                         />
                     </div>
 
                     <div className="form-group">
-                        <label htmlFor="custom-country-population" className="form-label">Custom Country Population:</label>
+                        <label htmlFor="custom-region-population" className="form-label">Custom Region Population:</label>
                         <input
                             type="number"
-                            id="custom-country-population"
+                            id="custom-region-population"
                             className="form-control"
-                            value={customCountryPopulation}
-                            onChange={handleCustomCountryPopulationChange}
+                            value={customRegionPopulation}
+                            onChange={handleCustomRegionPopulationChange}
                         />
                     </div>
                 </div>
             )}
-
-
 
             <button
                 className="btn btn-success mt-5"

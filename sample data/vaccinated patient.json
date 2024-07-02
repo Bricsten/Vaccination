@@ -9,7 +9,7 @@
       "$date": "2024-06-01T00:00:00.000Z"
     },
     "dosesLeft": 2,
-    "__v": 0
+    "region": "Adamawa"
   },
   {
     "_id": {
@@ -21,7 +21,7 @@
       "$date": "2024-05-30T00:00:00.000Z"
     },
     "dosesLeft": 1,
-    "__v": 0
+    "region": "Centre"
   },
   {
     "_id": {
@@ -33,7 +33,7 @@
       "$date": "2024-05-25T00:00:00.000Z"
     },
     "dosesLeft": 0,
-    "__v": 0
+    "region": "East"
   },
   {
     "_id": {
@@ -45,7 +45,7 @@
       "$date": "2024-06-02T00:00:00.000Z"
     },
     "dosesLeft": 2,
-    "__v": 0
+    "region": "Far North"
   },
   {
     "_id": {
@@ -57,7 +57,7 @@
       "$date": "2024-05-29T00:00:00.000Z"
     },
     "dosesLeft": 1,
-    "__v": 0
+    "region": "Littoral"
   },
   {
     "_id": {
@@ -69,7 +69,7 @@
       "$date": "2024-05-26T00:00:00.000Z"
     },
     "dosesLeft": 0,
-    "__v": 0
+    "region": "North"
   },
   {
     "_id": {
@@ -81,7 +81,7 @@
       "$date": "2024-06-04T00:00:00.000Z"
     },
     "dosesLeft": 2,
-    "__v": 0
+    "region": "NorthWest"
   },
   {
     "_id": {
@@ -93,7 +93,7 @@
       "$date": "2024-05-31T00:00:00.000Z"
     },
     "dosesLeft": 1,
-    "__v": 0
+    "region": "West"
   },
   {
     "_id": {
@@ -105,7 +105,7 @@
       "$date": "2024-05-27T00:00:00.000Z"
     },
     "dosesLeft": 0,
-    "__v": 0
+    "region": "South"
   },
   {
     "_id": {
@@ -117,7 +117,7 @@
       "$date": "2024-06-05T00:00:00.000Z"
     },
     "dosesLeft": 2,
-    "__v": 0
+    "region": "SouthWest"
   },
   {
     "_id": {
@@ -129,7 +129,7 @@
       "$date": "2024-06-01T00:00:00.000Z"
     },
     "dosesLeft": 1,
-    "__v": 0
+    "region": "Adamawa"
   },
   {
     "_id": {
@@ -141,7 +141,7 @@
       "$date": "2024-05-28T00:00:00.000Z"
     },
     "dosesLeft": 0,
-    "__v": 0
+    "region": "Centre"
   },
   {
     "_id": {
@@ -153,7 +153,7 @@
       "$date": "2024-06-06T00:00:00.000Z"
     },
     "dosesLeft": 2,
-    "__v": 0
+    "region": "East"
   },
   {
     "_id": {
@@ -165,7 +165,7 @@
       "$date": "2024-06-02T00:00:00.000Z"
     },
     "dosesLeft": 1,
-    "__v": 0
+    "region": "Far North"
   },
   {
     "_id": {
@@ -177,7 +177,7 @@
       "$date": "2024-05-29T00:00:00.000Z"
     },
     "dosesLeft": 0,
-    "__v": 0
+    "region": "Littoral"
   },
   {
     "_id": {
@@ -189,7 +189,7 @@
       "$date": "2024-06-07T00:00:00.000Z"
     },
     "dosesLeft": 2,
-    "__v": 0
+    "region": "North"
   },
   {
     "_id": {
@@ -201,7 +201,7 @@
       "$date": "2024-06-03T00:00:00.000Z"
     },
     "dosesLeft": 1,
-    "__v": 0
+    "region": "NorthWest"
   },
   {
     "_id": {
@@ -213,7 +213,7 @@
       "$date": "2024-05-30T00:00:00.000Z"
     },
     "dosesLeft": 0,
-    "__v": 0
+    "region": "West"
   },
   {
     "_id": {
@@ -222,9 +222,9 @@
     "sn": "u3v4",
     "name": "ethan",
     "dateVaccinated": {
-      "$date": "2024-06-08T00:00:00.000Z"
+      "$date": "2024-06-07T00:00:00.000Z"
     },
     "dosesLeft": 2,
-    "__v": 0
+    "region": "SouthWest"
   }
 ]
