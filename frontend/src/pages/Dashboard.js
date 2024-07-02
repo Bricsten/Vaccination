@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Outlet, Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaBars, FaAngleDoubleLeft, FaHome, FaUserCheck, FaSignOutAlt, FaCog } from 'react-icons/fa';
 
